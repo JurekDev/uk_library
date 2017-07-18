@@ -15,16 +15,22 @@ var APP_ID = undefined;
 //TODO: Replace this data with your own.
 //======================================================================================================
 
-var data=[
-    {firstName:"dave",lastName:"isbitski",title:"Chief Alexa evangelist",cityName:"philadelphia",twitter:"thedavedev",saytwitter:"the dave dev",github:"disbitski",saygithub:"d, isbitski",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-    {firstName:"paul",lastName:"cutsinger",title:"Head of Voice Design Education on Amazon Alexa",cityName:"seattle",twitter:"paulcutsinger",saytwitter:"paul cutsinger",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-    {firstName:"amit",lastName:"jotwani",title:"an Alexa AI and machine learning evangelist",cityName:"new york",twitter:"amit",saytwitter:"amit",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-    {firstName:"jeff",lastName:"blankenburg",title:"an Alexa evangelist",cityName:"columbus",twitter:"jeffblankenburg",saytwitter:"jeff blankenburg",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-    {firstName:"rob",lastName:"mccauley",title:"a Solutions Architect on the Alexa Skills Team",cityName:"boston",twitter:"robmccauley",saytwitter:"rob mccauley",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"},
-    {firstName:"memo",lastName:"doring",title:"a Solutions Architect on the Alexa Skills Team",cityName:"seattle",twitter:"memodoring",saytwitter:"memo doring",github:"memodoring",saygithub:"memo doring",linkedin:"https://www.linkedin.com/in/guillermodoring",saylinkedin:"guillermo doring",joinDate:"April 2016",gender:"m"},
-    {firstName:"liz",lastName:"myers",title:"a Solutions Architect on the Alexa Skills Team",cityName:"seattle",twitter:"lizmyers",saytwitter:"liz myers",github:"lizmyers",saygithub:"liz myers",linkedin:"https://www.linkedin.com/in/lizmyers",saylinkedin:"liz myers",joinDate:"May 2016",gender:"f"},
-    {firstName:"jen",lastName:"gilbert",title:"a Marketing Manager on the Alexa Skills team",cityName:"seattle",twitter:"thejengil",saytwitter:"the jengil",github:"jengilbert",saygithub:"jen gilbert",linkedin:"https://www.linkedin.com/in/jenpaullgilbert/",saylinkedin:"jen paull gilbert",joinDate:"June 2016",gender:"f"}
-];
+//var data=[
+//    {firstName:"dave",lastName:"isbitski",title:"Chief Alexa evangelist",cityName:"philadelphia",twitter:"thedavedev",saytwitter:"the dave dev",github:"disbitski",saygithub:"d, isbitski",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
+//    {firstName:"paul",lastName:"cutsinger",title:"Head of Voice Design Education on Amazon Alexa",cityName:"seattle",twitter:"paulcutsinger",saytwitter:"paul cutsinger",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
+//    {firstName:"amit",lastName:"jotwani",title:"an Alexa AI and machine learning evangelist",cityName:"new york",twitter:"amit",saytwitter:"amit",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
+//    {firstName:"jeff",lastName:"blankenburg",title:"an Alexa evangelist",cityName:"columbus",twitter:"jeffblankenburg",saytwitter:"jeff blankenburg",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
+//    {firstName:"rob",lastName:"mccauley",title:"a Solutions Architect on the Alexa Skills Team",cityName:"boston",twitter:"robmccauley",saytwitter:"rob mccauley",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"},
+//    {firstName:"memo",lastName:"doring",title:"a Solutions Architect on the Alexa Skills Team",cityName:"seattle",twitter:"memodoring",saytwitter:"memo doring",github:"memodoring",saygithub:"memo doring",linkedin:"https://www.linkedin.com/in/guillermodoring",saylinkedin:"guillermo doring",joinDate:"April 2016",gender:"m"},
+//    {firstName:"liz",lastName:"myers",title:"a Solutions Architect on the Alexa Skills Team",cityName:"seattle",twitter:"lizmyers",saytwitter:"liz myers",github:"lizmyers",saygithub:"liz myers",linkedin:"https://www.linkedin.com/in/lizmyers",saylinkedin:"liz myers",joinDate:"May 2016",gender:"f"},
+//    {firstName:"jen",lastName:"gilbert",title:"a Marketing Manager on the Alexa Skills team",cityName:"seattle",twitter:"thejengil",saytwitter:"the jengil",github:"jengilbert",saygithub:"jen gilbert",linkedin:"https://www.linkedin.com/in/jenpaullgilbert/",saylinkedin:"jen paull gilbert",joinDate:"June 2016",gender:"f"}
+//];
+
+var data =[
+  {
+    TITLE: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", TOWN: "Aberdeen", PHONE: "01224 652512"
+  }
+]
 
 //======================================================================================================
 //TODO: Replace these text strings to edit the welcome and help messages
@@ -199,18 +205,16 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
     },
     "SearchByNameIntent": function() {
         var slots = this.event.request.intent.slots;
-        var firstName = isSlotValid(this.event.request, "firstName");
-        var lastName = isSlotValid(this.event.request, "lastName");
+        var libraryName = isSlotValid(this.event.request, "libraryName");
         var cityName = isSlotValid(this.event.request, "cityName");
         var infoType = isSlotValid(this.event.request, "infoType");
 
-        console.log("firstName:" + firstName);
-        console.log("firstName:" + lastName);
-        console.log("firstName:" + cityName);
-        console.log("firstName:" + infoType);
+        console.log("libraryName:" + libraryName);
+        console.log("libraryName:" + cityName);
+        console.log("libraryName:" + infoType);
         console.log("Intent Name:" + this.event.request.intent.name);
 
-        var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+        var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
         console.log("Multiple results found. canSearch is set to = " + canSearch);
         var speechOutput;
 
@@ -274,8 +278,8 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
         cardContent = generateCard(person); //calling the helper function to generate the card content that will be sent to the Alexa app.
         speechOutput = generateTellMeMoreMessage(person);
         repromptSpeech = "Would you like to find another evangelist? Say yes or no";
-
-        console.log("the contact you're trying to find more info about is " + person.firstName);
+        // macht keine Sinn
+        console.log("the contact you're trying to find more info about is " + person.libraryName);
         this.handler.state = states.SEARCHMODE;
         this.attributes.lastSearch.lastSpeech = speechOutput;
         this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
@@ -344,7 +348,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
         this.handler.state = states.SEARCHMODE;
         var output = "Ok, starting over." + getGenericHelpMessage(data);
         this.emit(":ask", output, output);
-    },    
+    },
     "SessionEndedRequest": function() {
         this.emit("AMAZON.StopIntent");
     },
@@ -382,17 +386,13 @@ function searchDatabase(dataset, searchQuery, searchType) {
         results: results
     };
 }
-
-function figureOutWhichSlotToSearchBy(firstName,lastName,cityName) {
-  if (lastName){
-    console.log("search by lastName");
-    return "lastName";
+// Obacht !!!
+function figureOutWhichSlotToSearchBy(libraryName,cityName) {
+  if (libraryName){
+    console.log("search by libraryName");
+    return "libraryName";
   }
-  else if (!lastName && firstName){
-    console.log("search by firstName")
-    return "firstName";
-  }
-  else if (!lastName && !firstName && cityName){
+  else if (!libraryName && cityName){
     console.log("search by cityName")
     return "cityName";
   }
@@ -403,13 +403,12 @@ function figureOutWhichSlotToSearchBy(firstName,lastName,cityName) {
 }
 
 function searchByNameIntentHandler(){
-  var firstName = isSlotValid(this.event.request, "firstName");
-  var lastName = isSlotValid(this.event.request, "lastName");
+  var libraryName = isSlotValid(this.event.request, "libraryName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
   var testingThis = testingThisFunction.call(this,"hello");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -518,12 +517,11 @@ function searchByCityIntentHandler(){
 
 function searchByInfoTypeIntentHandler(){
   var slots = this.event.request.intent.slots;
-  var firstName = isSlotValid(this.event.request, "firstName");
-  var lastName = isSlotValid(this.event.request, "lastName");
+  var libraryName = isSlotValid(this.event.request, "libraryName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -603,9 +601,9 @@ function generateNextPromptMessage(person,mode){
   }
   return prompt;
 }
-
+// macht kein Sinn
 function generateSendingCardToAlexaAppMessage(person,mode){
-    var sentence = "I have sent " + person.firstName + "'s contact card to your Alexa app" + generateNextPromptMessage(person,mode);
+    var sentence = "I have sent " + person.libraryName + "'s contact card to your Alexa app" + generateNextPromptMessage(person,mode);
     return sentence;
 }
 
@@ -621,7 +619,7 @@ function generateSearchResultsMessage(searchQuery,results){
           break;
       case (results.length == 1):
           var person = results[0];
-          details = person.firstName + " " + person.lastName + " is " + person.title + ", based out of " + person.cityName
+          details = person.libraryName + " is " + person.title + ", based out of " + person.cityName
           prompt = generateNextPromptMessage(person,"current");
           sentence = details + prompt
           console.log(sentence);
@@ -648,7 +646,7 @@ function generateSearchHelpMessage(gender){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.firstName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -664,7 +662,7 @@ function generateSpecificInfoMessage(slots,person){
       infoTypeValue = slots.infoType.value;
     }
 
-    sentence = person.firstName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
+    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
 }
 
@@ -691,7 +689,7 @@ function getRandomCity(arrayOfStrings) {
 
 function getRandomName(arrayOfStrings) {
     var randomNumber = getRandom(0, data.length - 1)
-    return arrayOfStrings[randomNumber].firstName + " " + arrayOfStrings[randomNumber].lastName;
+    return arrayOfStrings[randomNumber].libraryName;
 }
 
 function titleCase(str) {
@@ -702,12 +700,13 @@ function slowSpell(str) {
     return "That's spelled - " + str.split("").join("<break time=\"0.05s\"/>");
 }
 
+// ändern!!
 function generateCard(person) {
-    var cardTitle = "Contact Info for " + titleCase(person.firstName) + " " + titleCase(person.lastName);
+    var cardTitle = "Contact Info for " + titleCase(person.libraryName);
     var cardBody = "Twitter: " + "@" + person.twitter + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
     var imageObj = {
-        smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
-        largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
+        smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
+        largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
     };
     return {
         "title": cardTitle,
@@ -721,11 +720,11 @@ function loopThroughArrayOfObjects(arrayOfStrings) {
     // Looping through the each object in the array
     for (var i = 0; i < arrayOfStrings.length; i++) {
     //concatenating names (firstName + lastName ) for each item
-        joinedResult = joinedResult + ", " + arrayOfStrings[i].firstName + " " + arrayOfStrings[i].lastName;
+        joinedResult = joinedResult + ", " + arrayOfStrings[i].libraryName;
     }
     return joinedResult;
 }
-
+//macht keinen Sinn
 function genderize(type, gender) {
     var pronouns ={
         "m":{"he-she":"he","his-her":"his","him-her":"him"},
