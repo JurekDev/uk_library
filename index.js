@@ -28,7 +28,7 @@ var APP_ID = undefined;
 
 var data =[
   {
-    libraryName: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", cityName: "Aberdeen", PHONE: "01224 652512"
+    libraryName: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", cityName: "Aberdeen", PHONE: "01224 652512", gender:"m"
   }
 ]
 
@@ -386,7 +386,7 @@ function searchDatabase(dataset, searchQuery, searchType) {
         results: results
     };
 }
-// Obacht !!!
+// TODO
 function figureOutWhichSlotToSearchBy(libraryName,cityName) {
   if (libraryName){
     console.log("search by libraryName");
