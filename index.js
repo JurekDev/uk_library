@@ -29,7 +29,6 @@ var APP_ID = undefined;
 var data =[
     {libraryName: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", cityName: "Aberdeen", PHONE: "01224 652512", gender:"m"},
     {libraryName: "Ferryhill Library", STREET_ADDRESS: "Fonthill Road", cityName: "Aberdeen", PHONE: ""},
-  }
 ]
 
 //======================================================================================================
