@@ -27,8 +27,8 @@ var APP_ID = undefined;
 //];
 
 var data =[
-    {libraryName: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", cityName: "Aberdeen", PHONE: "01224 652512", gender:"m"},
-    {libraryName: "Ferryhill Library", STREET_ADDRESS: "Fonthill Road", cityName: "Aberdeen", PHONE: ""},
+    {libraryName: "Aberdeen Central Library, Local Studies Department", STREET_ADDRESS: "Rosemount Viaduct", cityName: "Aberdeen", PHONE: "01224 652512"},
+    {libraryName: "Ferryhill Library", STREET_ADDRESS: "Fonthill Road", cityName: "Aberdeen", PHONE: ""}
 ]
 
 //======================================================================================================
@@ -147,7 +147,7 @@ var startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
       this.emit(":ask",output, output);
     },
     "SearchByNameIntent": function() {
-      searchByNameIntentHandler.call(this);
+      searchByLibraryNameIntentHandler.call(this);
     },
     "SearchByCityIntent": function() {
       searchByCityIntentHandler.call(this);
@@ -318,7 +318,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
             }
     },
     "SearchByNameIntent": function() {
-        searchByNameIntentHandler.call(this);
+        searchByLibraryNameIntentHandler.call(this);
     },
     "SearchByCityIntent": function() {
       searchByCityIntentHandler.call(this);
@@ -389,11 +389,11 @@ function searchDatabase(dataset, searchQuery, searchType) {
 function figureOutWhichSlotToSearchBy(libraryName,cityName) {
   if (cityName){
     console.log("search by cityName");
-    return "libraryName";
+    return "cityName";
   }
   else if (libraryName && !cityName){
     console.log("search by libraryName")
-    return "cityName";
+    return "libraryName";
   }
   else{
     return false;
@@ -401,7 +401,7 @@ function figureOutWhichSlotToSearchBy(libraryName,cityName) {
   }
 }
 
-function searchByNameIntentHandler(){
+function searchByLibraryNameIntentHandler(){
   var libraryName = isSlotValid(this.event.request, "libraryName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
@@ -419,7 +419,7 @@ function searchByNameIntentHandler(){
         var output;
 
         //saving last intent to session attributes
-        this.attributes.lastSearch.lastIntent = "SearchByNameIntent";
+        this.attributes.lastSearch.lastIntent = "searchByLibraryNameIntent";
 
         if (searchResults.count > 1) { //multiple results found
             console.log("Search complete. Multiple results were found");
