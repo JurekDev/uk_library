@@ -387,12 +387,12 @@ function searchDatabase(dataset, searchQuery, searchType) {
 }
 // TODO
 function figureOutWhichSlotToSearchBy(libraryName,cityName) {
-  if (libraryName){
-    console.log("search by libraryName");
+  if (cityName){
+    console.log("search by cityName");
     return "libraryName";
   }
-  else if (!libraryName && cityName){
-    console.log("search by cityName")
+  else if (libraryName && !cityName){
+    console.log("search by libraryName")
     return "cityName";
   }
   else{
@@ -745,7 +745,7 @@ function optimizeForSpeech(str){
 
 function isSlotValid(request, slotName){
         var slot = request.intent.slots[slotName];
-        //console.log("request = "+JSON.stringify(request)); //uncomment if you want to see the request
+        console.log("request = "+JSON.stringify(request)); //uncomment if you want to see the request
         var slotValue;
 
         //if we have a slot, get the text and store it into speechOutput
