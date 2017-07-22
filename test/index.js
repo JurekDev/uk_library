@@ -200,17 +200,15 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
     "SearchByNameIntent": function() {
         var slots = this.event.request.intent.slots;
         var firstName = isSlotValid(this.event.request, "firstName");
-        var lastName = isSlotValid(this.event.request, "lastName");
         var cityName = isSlotValid(this.event.request, "cityName");
         var infoType = isSlotValid(this.event.request, "infoType");
 
         console.log("firstName:" + firstName);
-        console.log("firstName:" + lastName);
         console.log("firstName:" + cityName);
         console.log("firstName:" + infoType);
         console.log("Intent Name:" + this.event.request.intent.name);
 
-        var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+        var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
         console.log("Multiple results found. canSearch is set to = " + canSearch);
         var speechOutput;
 
@@ -374,7 +372,7 @@ function searchDatabase(dataset, searchQuery, searchType) {
             matchFound = false;
             console.log("no match was found using " + searchType);
         //if more than searchable items were provided, set searchType to the next item, and set i=0
-        //ideally you want to start search with lastName, then firstname, and then cityName
+        //ideally you want to start search with  then firstname, and then cityName
         }
     }
     return {
@@ -383,16 +381,12 @@ function searchDatabase(dataset, searchQuery, searchType) {
     };
 }
 
-function figureOutWhichSlotToSearchBy(firstName,lastName,cityName) {
-  if (lastName){
-    console.log("search by lastName");
-    return "lastName";
-  }
-  else if (!lastName && firstName){
-    console.log("search by firstName")
+function figureOutWhichSlotToSearchBy(firstName,cityName) {
+  if (firstName){
+    console.log("search by firstName");
     return "firstName";
   }
-  else if (!lastName && !firstName && cityName){
+  else if (!firstName && cityName){
     console.log("search by cityName")
     return "cityName";
   }
@@ -404,12 +398,11 @@ function figureOutWhichSlotToSearchBy(firstName,lastName,cityName) {
 
 function searchByNameIntentHandler(){
   var firstName = isSlotValid(this.event.request, "firstName");
-  var lastName = isSlotValid(this.event.request, "lastName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
   var testingThis = testingThisFunction.call(this,"hello");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -519,11 +512,10 @@ function searchByCityIntentHandler(){
 function searchByInfoTypeIntentHandler(){
   var slots = this.event.request.intent.slots;
   var firstName = isSlotValid(this.event.request, "firstName");
-  var lastName = isSlotValid(this.event.request, "lastName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,lastName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -621,7 +613,7 @@ function generateSearchResultsMessage(searchQuery,results){
           break;
       case (results.length == 1):
           var person = results[0];
-          details = person.firstName + " " + person.lastName + " is " + person.title + ", based out of " + person.cityName
+          details = person.firstName + " " + " is " + person.title + ", based out of " + person.cityName
           prompt = generateNextPromptMessage(person,"current");
           sentence = details + prompt
           console.log(sentence);
@@ -691,7 +683,7 @@ function getRandomCity(arrayOfStrings) {
 
 function getRandomName(arrayOfStrings) {
     var randomNumber = getRandom(0, data.length - 1)
-    return arrayOfStrings[randomNumber].firstName + " " + arrayOfStrings[randomNumber].lastName;
+    return arrayOfStrings[randomNumber].firstName;
 }
 
 function titleCase(str) {
@@ -703,7 +695,7 @@ function slowSpell(str) {
 }
 
 function generateCard(person) {
-    var cardTitle = "Contact Info for " + titleCase(person.firstName) + " " + titleCase(person.lastName);
+    var cardTitle = "Contact Info for " + titleCase(person.firstName);
     var cardBody = "Twitter: " + "@" + person.twitter + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
     var imageObj = {
         smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
@@ -720,8 +712,8 @@ function loopThroughArrayOfObjects(arrayOfStrings) {
     var joinedResult = "";
     // Looping through the each object in the array
     for (var i = 0; i < arrayOfStrings.length; i++) {
-    //concatenating names (firstName + lastName ) for each item
-        joinedResult = joinedResult + ", " + arrayOfStrings[i].firstName + " " + arrayOfStrings[i].lastName;
+    //concatenating names (firstName ) for each item
+        joinedResult = joinedResult + ", " + arrayOfStrings[i].firstName;
     }
     return joinedResult;
 }
