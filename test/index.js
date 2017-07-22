@@ -627,7 +627,7 @@ function generateSearchResultsMessage(searchQuery,results){
           console.log(sentence);
           break;
       case (results.length > 1):
-          sentence = "I found " + results.length + " matching results";
+          sentence = "I found " + results.length + " matching libraries";
           break;
       }
     }
