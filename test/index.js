@@ -20,7 +20,7 @@ var data=[
   {firstName:"jurek library",title:"a jurek library",cityName:"london",twitter:"012033201",saytwitter:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
   {firstName:"wilko library",title:"a stinkers library",cityName:"london",twitter:"01234421",saytwitter:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
   {firstName:"king library",title:"an Alexa library",cityName:"aberdeen",twitter:"12345667",saytwitter:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {firstName:"roboter library",title:"cool cyber liber",cityName:"oxford",twitter:"0973722",saytwitter:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"},
+  {firstName:"roboter library",title:"cool cyber liber",cityName:"oxford",twitter:"0973722",saytwitter:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
