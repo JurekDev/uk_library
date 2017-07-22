@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",twitter:"05411278723",saytwitter:"05411278723",github:"keins",saygithub:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",twitter:"012033201",saytwitter:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",twitter:"01234421",saytwitter:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",twitter:"12345667",saytwitter:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",twitter:"0973722",saytwitter:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",github:"keins",saygithub:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
@@ -303,7 +303,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage(person.gender);
-              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " twitter, or give me " + genderize("his-her", person.gender) + " git-hub username";
+              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " git-hub username";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["git-hub username","twitter handle","linked-in"]
+  var infoTypes = ["git-hub username","phone handle","linked-in"]
   var prompt;
 
   if (mode == "current"){
@@ -632,12 +632,12 @@ function getGenericHelpMessage(data){
 }
 
 function generateSearchHelpMessage(gender){
-    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" twitter, or give me " + genderize("his-her", gender) + " git-hub username";
+    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " git-hub username";
     return sentence;
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " phone handle is " + person.sayphone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -693,7 +693,7 @@ function slowSpell(str) {
 
 function generateCard(person) {
     var cardTitle = "Contact Info for " + titleCase(person.libraryName);
-    var cardBody = "Twitter: " + "@" + person.twitter + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
+    var cardBody = "phone: " + "@" + person.phone + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
     var imageObj = {
         smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
         largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
@@ -757,7 +757,7 @@ function isInArray(value, array) {
 }
 
 function isInfoTypeValid(infoType){
-  var validTypes = ["git hub","github","twitter","linkedin"]
+  var validTypes = ["git hub","github","phone","linkedin"]
   return isInArray(infoType,validTypes);
 }
 
