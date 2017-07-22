@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["git-hub username","phone handle","linked-in"]
+  var infoTypes = ["git-hub username","phone number","linked-in"]
   var prompt;
 
   if (mode == "current"){
@@ -637,7 +637,7 @@ function generateSearchHelpMessage(gender){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " phone handle is " + person.sayphone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " phone number is " + person.sayphone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
