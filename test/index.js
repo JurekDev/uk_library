@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {firstName:"test library",title:"an imaginary library",cityName:"aberdeen",twitter:"05411278723",saytwitter:"05411278723",github:"keins",saygithub:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-  {firstName:"jurek library",title:"a jurek library",cityName:"london",twitter:"012033201",saytwitter:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-  {firstName:"wilko library",title:"a stinkers library",cityName:"london",twitter:"01234421",saytwitter:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-  {firstName:"king library",title:"an Alexa library",cityName:"aberdeen",twitter:"12345667",saytwitter:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {firstName:"roboter library",title:"cool cyber liber",cityName:"oxford",twitter:"0973722",saytwitter:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",twitter:"05411278723",saytwitter:"05411278723",github:"keins",saygithub:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",twitter:"012033201",saytwitter:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",twitter:"01234421",saytwitter:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",twitter:"12345667",saytwitter:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",twitter:"0973722",saytwitter:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
@@ -196,16 +196,16 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
     },
     "SearchByNameIntent": function() {
         var slots = this.event.request.intent.slots;
-        var firstName = isSlotValid(this.event.request, "firstName");
+        var libraryName = isSlotValid(this.event.request, "libraryName");
         var cityName = isSlotValid(this.event.request, "cityName");
         var infoType = isSlotValid(this.event.request, "infoType");
 
-        console.log("firstName:" + firstName);
-        console.log("firstName:" + cityName);
-        console.log("firstName:" + infoType);
+        console.log("libraryName:" + libraryName);
+        console.log("libraryName:" + cityName);
+        console.log("libraryName:" + infoType);
         console.log("Intent Name:" + this.event.request.intent.name);
 
-        var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
+        var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
         console.log("Multiple results found. canSearch is set to = " + canSearch);
         var speechOutput;
 
@@ -270,7 +270,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
         speechOutput = generateTellMeMoreMessage(person);
         repromptSpeech = "Would you like to find another evangelist? Say yes or no";
 
-        console.log("the contact you're trying to find more info about is " + person.firstName);
+        console.log("the contact you're trying to find more info about is " + person.libraryName);
         this.handler.state = states.SEARCHMODE;
         this.attributes.lastSearch.lastSpeech = speechOutput;
         this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
@@ -369,7 +369,7 @@ function searchDatabase(dataset, searchQuery, searchType) {
             matchFound = false;
             console.log("no match was found using " + searchType);
         //if more than searchable items were provided, set searchType to the next item, and set i=0
-        //ideally you want to start search with  then firstname, and then cityName
+        //ideally you want to start search with  then libraryName, and then cityName
         }
     }
     return {
@@ -378,12 +378,12 @@ function searchDatabase(dataset, searchQuery, searchType) {
     };
 }
 
-function figureOutWhichSlotToSearchBy(firstName,cityName) {
-  if (firstName){
-    console.log("search by firstName");
-    return "firstName";
+function figureOutWhichSlotToSearchBy(libraryName,cityName) {
+  if (libraryName){
+    console.log("search by libraryName");
+    return "libraryName";
   }
-  else if (!firstName && cityName){
+  else if (!libraryName && cityName){
     console.log("search by cityName")
     return "cityName";
   }
@@ -394,12 +394,12 @@ function figureOutWhichSlotToSearchBy(firstName,cityName) {
 }
 
 function searchByNameIntentHandler(){
-  var firstName = isSlotValid(this.event.request, "firstName");
+  var libraryName = isSlotValid(this.event.request, "libraryName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
   var testingThis = testingThisFunction.call(this,"hello");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -508,11 +508,11 @@ function searchByCityIntentHandler(){
 
 function searchByInfoTypeIntentHandler(){
   var slots = this.event.request.intent.slots;
-  var firstName = isSlotValid(this.event.request, "firstName");
+  var libraryName = isSlotValid(this.event.request, "libraryName");
   var cityName = isSlotValid(this.event.request, "cityName");
   var infoType = isSlotValid(this.event.request, "infoType");
 
-  var canSearch = figureOutWhichSlotToSearchBy(firstName,cityName);
+  var canSearch = figureOutWhichSlotToSearchBy(libraryName,cityName);
   console.log("canSearch is set to = " + canSearch);
 
       if (canSearch){
@@ -594,7 +594,7 @@ function generateNextPromptMessage(person,mode){
 }
 
 function generateSendingCardToAlexaAppMessage(person,mode){
-    var sentence = "I have sent " + person.firstName + "'s contact card to your Alexa app" + generateNextPromptMessage(person,mode);
+    var sentence = "I have sent " + person.libraryName + "'s contact card to your Alexa app" + generateNextPromptMessage(person,mode);
     return sentence;
 }
 
@@ -610,7 +610,7 @@ function generateSearchResultsMessage(searchQuery,results){
           break;
       case (results.length == 1):
           var person = results[0];
-          details = person.firstName + " " + " is " + person.title + ", based out of " + person.cityName
+          details = person.libraryName + " " + " is " + person.title + ", based out of " + person.cityName
           prompt = generateNextPromptMessage(person,"current");
           sentence = details + prompt
           console.log(sentence);
@@ -637,7 +637,7 @@ function generateSearchHelpMessage(gender){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.firstName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -653,7 +653,7 @@ function generateSpecificInfoMessage(slots,person){
       infoTypeValue = slots.infoType.value;
     }
 
-    sentence = person.firstName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
+    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
 }
 
@@ -680,7 +680,7 @@ function getRandomCity(arrayOfStrings) {
 
 function getRandomName(arrayOfStrings) {
     var randomNumber = getRandom(0, data.length - 1)
-    return arrayOfStrings[randomNumber].firstName;
+    return arrayOfStrings[randomNumber].libraryName;
 }
 
 function titleCase(str) {
@@ -692,11 +692,11 @@ function slowSpell(str) {
 }
 
 function generateCard(person) {
-    var cardTitle = "Contact Info for " + titleCase(person.firstName);
+    var cardTitle = "Contact Info for " + titleCase(person.libraryName);
     var cardBody = "Twitter: " + "@" + person.twitter + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
     var imageObj = {
-        smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
-        largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
+        smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
+        largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
     };
     return {
         "title": cardTitle,
@@ -709,8 +709,8 @@ function loopThroughArrayOfObjects(arrayOfStrings) {
     var joinedResult = "";
     // Looping through the each object in the array
     for (var i = 0; i < arrayOfStrings.length; i++) {
-    //concatenating names (firstName ) for each item
-        joinedResult = joinedResult + ", " + arrayOfStrings[i].firstName;
+    //concatenating names (libraryName ) for each item
+        joinedResult = joinedResult + ", " + arrayOfStrings[i].libraryName;
     }
     return joinedResult;
 }
