@@ -273,7 +273,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
         console.log("the contact you're trying to find more info about is " + person.libraryName);
         this.handler.state = states.SEARCHMODE;
         this.attributes.lastSearch.lastSpeech = speechOutput;
-        this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+        this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
       }
       else{
         speechOutput = getGenericHelpMessage(data);
@@ -299,7 +299,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
               repromptSpeech = "Would you like to find another evangelist? Say yes or no";
               this.handler.state = states.SEARCHMODE;
               this.attributes.lastSearch.lastSpeech = speechOutput;
-              this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+              this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage(person.gender);
@@ -545,7 +545,7 @@ function searchByInfoTypeIntentHandler(){
                 var repromptSpeech = "Would you like to find another evangelist? Say yes or no";
                 this.attributes.lastSearch.lastSpeech = speechOutput;
                 this.handler.state = states.SEARCHMODE;
-                this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+                this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
                 // this.emitWithState("TellMeThisIntent");
             }
             else{
@@ -694,14 +694,9 @@ function slowSpell(str) {
 function generateCard(person) {
     var cardTitle = "Contact Info for " + titleCase(person.libraryName);
     var cardBody = "phone: " + person.phone + " \n" + "address: " + person.address + " \n" + "LinkedIn: " + person.linkedin;
-    var imageObj = {
-        smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
-        largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
-    };
     return {
         "title": cardTitle,
         "body": cardBody,
-        "image": imageObj
     };
 }
 
