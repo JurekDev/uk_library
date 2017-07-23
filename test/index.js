@@ -303,7 +303,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage(person.gender);
-              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " address";
+              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " git-hub username";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["address","phone number","linked-in"]
+  var infoTypes = ["git-hub username","phone number","linked-in"]
   var prompt;
 
   if (mode == "current"){
@@ -632,7 +632,7 @@ function getGenericHelpMessage(data){
 }
 
 function generateSearchHelpMessage(gender){
-    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " address";
+    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " git-hub username";
     return sentence;
 }
 
@@ -644,6 +644,14 @@ function generateSpecificInfoMessage(slots,person){
     var infoTypeValue;
     var sentence;
 
+    if (slots.infoType.value == "street"){
+      infoTypeValue = "address";
+      console.log("resetting gith hub to address");
+    }
+    else{
+      console.log("no reset required for address");
+      infoTypeValue = slots.infoType.value;
+    }
 
     sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
@@ -745,7 +753,7 @@ function isInArray(value, array) {
 }
 
 function isInfoTypeValid(infoType){
-  var validTypes = ["address","phone","linkedin"]
+  var validTypes = ["street","address","phone","linkedin"]
   return isInArray(infoType,validTypes);
 }
 
