@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",github:"keins",saygithub:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",github:"paulcutsinger",saygithub:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",github:"ajot",saygithub:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",github:"jeffblankenburg",saygithub:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",github:"robm26",saygithub:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",github:"test street",saygithub:"test street",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",github:"jurek street",saygithub:"jurek street",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",github:"wilko street",saygithub:"wilko street",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",github:"king street",saygithub:"king street",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",github:"robo street",saygithub:"robo street",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
