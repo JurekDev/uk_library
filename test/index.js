@@ -303,7 +303,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage(person.gender);
-              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " git-hub username";
+              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " address";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["git-hub username","phone number","linked-in"]
+  var infoTypes = ["address","phone number","linked-in"]
   var prompt;
 
   if (mode == "current"){
@@ -632,7 +632,7 @@ function getGenericHelpMessage(data){
 }
 
 function generateSearchHelpMessage(gender){
-    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " git-hub username";
+    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " address";
     return sentence;
 }
 
