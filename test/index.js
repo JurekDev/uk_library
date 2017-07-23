@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",address:"test street",sayaddress:"test street",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",address:"jurek street",sayaddress:"jurek street",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",address:"wilko street",sayaddress:"wilko street",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",address:"king street",sayaddress:"king street",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",address:"roboter street",sayaddress:"roboter street",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",address:"test street",sayaddress:"test street",email:"test@test.de",sayemail:"test@test.de",joinDate:"October 2015",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",address:"jurek street",sayaddress:"jurek street",email:"jurek@jurek.de",sayemail:"jurek@jurek.de",joinDate:"January 2016",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",address:"wilko street",sayaddress:"wilko street",email:"wilko@wilko.de",sayemail:"wilko@wilko.de",joinDate:"February 2016",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",address:"king street",sayaddress:"king street",email:"king@king.com",sayemail:"king@king.com",joinDate:"September 2016",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",address:"roboter street",sayaddress:"roboter street",email:"alexa@amazon.de",sayemail:"alexa@amazon.de",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["address username","phone number","linked-in"]
+  var infoTypes = ["address username","phone number","email"]
   var prompt;
 
   if (mode == "current"){
@@ -693,7 +693,7 @@ function slowSpell(str) {
 
 function generateCard(person) {
     var cardTitle = "Contact Info for " + titleCase(person.libraryName);
-    var cardBody = "phone: " + person.phone + " \n" + "address: " + person.address + " \n" + "LinkedIn: " + person.linkedin;
+    var cardBody = "phone: " + person.phone + " \n" + "address: " + person.address + " \n" + "email: " + person.email;
     return {
         "title": cardTitle,
         "body": cardBody,
@@ -752,7 +752,7 @@ function isInArray(value, array) {
 }
 
 function isInfoTypeValid(infoType){
-  var validTypes = ["address","phone","linkedin"]
+  var validTypes = ["address","phone","email"]
   return isInArray(infoType,validTypes);
 }
 
