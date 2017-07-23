@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",address:"test street",sayaddress:"test street",email:"test@test.de",sayemail:"test@test.de",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",address:"jurek street",sayaddress:"jurek street",email:"not available",sayemail:"not available",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",address:"wilko street",sayaddress:"wilko street",email:"wilko@wilko.de",sayemail:"wilko@wilko.de",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",address:"king street",sayaddress:"king street",email:"king@king.com",sayemail:"king@king.com",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",address:"roboter street",sayaddress:"roboter street",email:"alexa@amazon.de",sayemail:"alexa@amazon.de",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",address:"test street",email:"test@test.de",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",address:"jurek street",email:"not available",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",address:"wilko street",email:"wilko@wilko.de",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",address:"king street",email:"king@king.com",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",address:"roboter street",email:"alexa@amazon.de",gender:"m"}
 ];
 
 //======================================================================================================
@@ -637,7 +637,7 @@ function generateSearchHelpMessage(gender){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " joined the Alexa team in " + ". " + genderize("his-her", person.gender) + " phone number is " + person.sayphone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + ". " + genderize("his-her", person.gender) + " phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -653,7 +653,7 @@ function generateSpecificInfoMessage(slots,person){
       infoTypeValue = slots.infoType.value;
     }
 
-    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
+    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person[infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
 }
 
