@@ -12,15 +12,14 @@ var APP_ID = undefined;
 // =====================================================================================================
 // --------------------------------- Section 1. Data and Text strings  ---------------------------------
 // =====================================================================================================
-//TODO: Replace this data with your own.
-//======================================================================================================
+
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",address:"test street",email:"test@test.de",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",address:"jurek street",email:"not available",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",address:"wilko street",email:"wilko@wilko.de",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",address:"king street",email:"king@king.com",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",address:"roboter street",email:"alexa@amazon.de",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",address:"test street",email:"test@test.de"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",address:"jurek street",email:"not available"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",address:"wilko street",email:"wilko@wilko.de"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",address:"king street",email:"king@king.com"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",address:"roboter street",email:"alexa@amazon.de"}
 ];
 
 //======================================================================================================
@@ -302,8 +301,8 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
               this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
-              speechOutput = generateSearchHelpMessage(person.gender);
-              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " address username";
+              speechOutput = generateSearchHelpMessage();
+              repromptSpeech = "You can ask me - what's his phone, or give me his address";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -579,12 +578,12 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["address username","phone number","email"]
+  var infoTypes = ["address","phone number","email"]
   var prompt;
 
   if (mode == "current"){
     // if the mode is current, we should give more informaiton about the current contact
-    prompt = ". You can say - tell me more, or  tell me " + genderize("his-her", person.gender) + " " + infoTypes[getRandom(0,infoTypes.length-1)];
+    prompt = ". You can say - tell me more, or  tell me his" +  " " + infoTypes[getRandom(0,infoTypes.length-1)];
   }
   //if the mode is general, we should provide general help information
   else if (mode == "general"){
@@ -631,13 +630,13 @@ function getGenericHelpMessage(data){
   return "You can " + sentences[getRandom(0,sentences.length-1)]
 }
 
-function generateSearchHelpMessage(gender){
-    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " address username";
+function generateSearchHelpMessage(){
+    var sentence = "Sorry, I don't know that. You can ask me - what's his phone number, or give me his address";
     return sentence;
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " joined the Alexa team in " + ". " + genderize("his-her", person.gender) + " phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " joined the Alexa team in " + ". " + "his phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -710,13 +709,6 @@ function loopThroughArrayOfObjects(arrayOfStrings) {
     return joinedResult;
 }
 
-function genderize(type, gender) {
-    var pronouns ={
-        "m":{"he-she":"he","his-her":"his","him-her":"him"},
-        "f":{"he-she":"she","his-her":"her","him-her":"her"}
-    };
-    return pronouns[gender][type];
-}
 
 function sanitizeSearchQuery(searchQuery){
     searchQuery = searchQuery.replace(/’s/g, "").toLowerCase();
