@@ -16,11 +16,11 @@ var APP_ID = undefined;
 //======================================================================================================
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",address:"test street",sayaddress:"test street",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",address:"jurek street",sayaddress:"jurek street",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",address:"wilko street",sayaddress:"wilko street",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",address:"king street",sayaddress:"king street",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",address:"robo street",sayaddress:"robo street",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
+  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",sayphone:"05411278723",address:"keins",sayaddress:"keins",linkedin:"https://www.linkedin.com/in/davidisbitski",saylinkedin:"david isbitski",joinDate:"October 2015",gender:"m"},
+  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",sayphone:"012303921",address:"paulcutsinger",sayaddress:"paulcutsinger",linkedin:"https://www.linkedin.com/in/paulcutsinger",saylinkedin:"paul cutsinger",joinDate:"January 2016",gender:"m"},
+  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",sayphone:"01234832",address:"ajot",sayaddress:"a, jot",linkedin:"https://www.linkedin.com/in/ajotwani",saylinkedin:"a jotwani",joinDate:"February 2016",gender:"m"},
+  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",sayphone:"12345667",address:"jeffblankenburg",sayaddress:"jeffblankenburg",linkedin:"https://www.linkedin.com/in/jeffblankenburg",saylinkedin:"jeff blankenburg",joinDate:"September 2016",gender:"m"},
+  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",sayphone:"0942344",address:"robm26",sayaddress:"rob m 26",linkedin:"https://www.linkedin.com/in/robm26",saylinkedin:"rob m 26",joinDate:"February 2016",gender:"m"}
 ];
 
 //======================================================================================================
@@ -303,7 +303,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage(person.gender);
-              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " git-hub username";
+              repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " phone, or give me " + genderize("his-her", person.gender) + " address username";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -579,7 +579,7 @@ function searchByInfoTypeIntentHandler(){
 // =====================================================================================================
 
 function generateNextPromptMessage(person,mode){
-  var infoTypes = ["git-hub username","phone number","linked-in"]
+  var infoTypes = ["address username","phone number","linked-in"]
   var prompt;
 
   if (mode == "current"){
@@ -632,7 +632,7 @@ function getGenericHelpMessage(data){
 }
 
 function generateSearchHelpMessage(gender){
-    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " git-hub username";
+    var sentence = "Sorry, I don't know that. You can ask me - what's " + genderize("his-her", gender) +" phone, or give me " + genderize("his-her", gender) + " address username";
     return sentence;
 }
 
@@ -644,7 +644,7 @@ function generateSpecificInfoMessage(slots,person){
     var infoTypeValue;
     var sentence;
 
-    if (slots.infoType.value == "street"){
+    if (slots.infoType.value == "git hub"){
       infoTypeValue = "address";
       console.log("resetting gith hub to address");
     }
@@ -729,6 +729,10 @@ function sanitizeSearchQuery(searchQuery){
     return searchQuery;
 }
 
+function optimizeForSpeech(str){
+    var optimizedString = str.replace("address","address");
+    return optimizedString;
+}
 
 function isSlotValid(request, slotName){
         var slot = request.intent.slots[slotName];
@@ -753,7 +757,7 @@ function isInArray(value, array) {
 }
 
 function isInfoTypeValid(infoType){
-  var validTypes = ["street","address","phone","linkedin"]
+  var validTypes = ["address","phone","linkedin"]
   return isInArray(infoType,validTypes);
 }
 
