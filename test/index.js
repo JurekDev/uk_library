@@ -693,7 +693,7 @@ function slowSpell(str) {
 
 function generateCard(person) {
     var cardTitle = "Contact Info for " + titleCase(person.libraryName);
-    var cardBody = "phone: " + "@" + person.phone + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
+    var cardBody = "phone: " + person.phone + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
     var imageObj = {
         smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
         largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.libraryName + "._TTH_.jpg",
