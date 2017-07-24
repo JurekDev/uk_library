@@ -15,11 +15,11 @@ var APP_ID = undefined;
 
 
 var data=[
-  {libraryName:"test library",title:"an imaginary library",cityName:"aberdeen",phone:"05411278723",address:"test street",email:"test@test.de"},
-  {libraryName:"jurek library",title:"a jurek library",cityName:"london",phone:"012033201",address:"jurek street",email:"not available"},
-  {libraryName:"wilko library",title:"a stinkers library",cityName:"london",phone:"01234421",address:"wilko street",email:"wilko@wilko.de"},
-  {libraryName:"king library",title:"an Alexa library",cityName:"aberdeen",phone:"12345667",address:"king street",email:"king@king.com"},
-  {libraryName:"roboter library",title:"cool cyber liber",cityName:"oxford",phone:"0973722",address:"roboter street",email:"alexa@amazon.de"}
+  {libraryName:"test library",cityName:"aberdeen",phone:"05411278723",address:"test street",email:"test@test.de"},
+  {libraryName:"jurek library",cityName:"london",phone:"012033201",address:"jurek street",email:"not available"},
+  {libraryName:"wilko library",cityName:"london",phone:"01234421",address:"wilko street",email:"wilko@wilko.de"},
+  {libraryName:"king library",cityName:"aberdeen",phone:"12345667",address:"king street",email:"king@king.com"},
+  {libraryName:"roboter library",cityName:"oxford",phone:"0973722",address:"roboter street",email:"alexa@amazon.de"}
 ];
 
 //======================================================================================================
@@ -609,7 +609,7 @@ function generateSearchResultsMessage(searchQuery,results){
           break;
       case (results.length == 1):
           var person = results[0];
-          details = person.libraryName + " " + " is " + person.title + ", based out of " + person.cityName
+          details = person.libraryName + " " + " is located in " + person.cityName
           prompt = generateNextPromptMessage(person,"current");
           sentence = details + prompt
           console.log(sentence);
