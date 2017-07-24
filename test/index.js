@@ -609,7 +609,7 @@ function generateSearchResultsMessage(searchQuery,results){
           break;
       case (results.length == 1):
           var person = results[0];
-          details = person.libraryName + " " + " is located in " + person.cityName
+          details = person.libraryName + " " + " is located in " + person.cityName + " in the " + person.address
           prompt = generateNextPromptMessage(person,"current");
           sentence = details + prompt
           console.log(sentence);
@@ -626,17 +626,17 @@ function generateSearchResultsMessage(searchQuery,results){
 }
 
 function getGenericHelpMessage(data){
-  var sentences = ["ask - who is " + getRandomName(data),"say - find an evangelist in " + getRandomCity(data)];
+  var sentences = ["ask - who is " + getRandomName(data),"say - find an library in " + getRandomCity(data)];
   return "You can " + sentences[getRandom(0,sentences.length-1)]
 }
 
 function generateSearchHelpMessage(){
-    var sentence = "Sorry, I don't know that. You can ask me - what's his phone number, or give me his address";
+    var sentence = "Sorry, I don't know that. You can ask me - what's the phone number, or give me the address";
     return sentence;
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " joined the Alexa team in " + ". " + "his phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -652,7 +652,7 @@ function generateSpecificInfoMessage(slots,person){
       infoTypeValue = slots.infoType.value;
     }
 
-    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person[infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
+    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person[infoTypeValue.toLowerCase()] + " . Would you like to find another library? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
 }
 
