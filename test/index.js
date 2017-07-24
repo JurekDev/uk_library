@@ -16,216 +16,152 @@ var APP_ID = undefined;
 
 var data=[
   {
-    "libraryName": "Northfield Library",
-    "address": "Byron Square",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": "0121 464 1007"
+    libraryName:"northfield library",
+    address:"byron square",
+    cityName:"aberdeen",
+    email:"",
+    phone:"0121 464 1007"
   },
   {
-    "libraryName": "Aberdeen Central Library",
-    "address": "Rosemount Viaduct",
-    "cityName": "Aberdeen",
-    "email": "CentralLibrary@aberdeencity.gov.uk",
-    "phone": "01224 652500"
+    libraryName:"aberdeen central library",
+    address:"rosemount viaduct",
+    cityName:"aberdeen",
+    email:"centrallibrary@aberdeencity.gov.uk",
+    phone:"01224 652500"
   },
   {
-    "libraryName": "Aberdeen Central Library, Local Studies Department",
-    "address": "Rosemount Viaduct",
-    "cityName": "Aberdeen",
-    "email": "LocalStudiesLibrary@aberdeencity.gov.uk",
-    "phone": "01224 652512"
+    libraryName:"aberdeen central library, local studies department",
+    address:"rosemount viaduct",
+    cityName:"aberdeen",
+    email:"localstudieslibrary@aberdeencity.gov.uk",
+    phone:"01224 652512"
   },
   {
-    "libraryName": "Ferryhill Library",
-    "address": "Fonthill Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"ferryhill library",
+    address:"fonthill road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Torry Library",
-    "address": "Victoria Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"torry library",
+    address:"victoria road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Cove Library",
-    "address": "Loirston Avenue",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"cove library",
+    address:"loirston avenue",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Kincorth Library and Customer Access Point",
-    "address": "Provost Watt Drive",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"kincorth library and customer access point",
+    address:"provost watt drive",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Culter Library",
-    "address": "North Deeside Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"culter library",
+    address:"north deeside road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Airyhall Library",
-    "address": "Springfield Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"airyhall library",
+    address:"springfield road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Cults Library & Learning Centre",
-    "address": "429 North Deeside Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"cults library & learning centre",
+    address:"429 north deeside road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Cornhill Library",
-    "address": "Cornhill Drive",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"cornhill library",
+    address:"cornhill drive",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Mastrick Library",
-    "address": "Greenfern Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"mastrick library",
+    address:"greenfern road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Dyce Library",
-    "address": "Riverview Drive",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"dyce library",
+    address:"riverview drive",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Bucksburn Community Library",
-    "address": "Kepplehills Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"bucksburn community library",
+    address:"kepplehills road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Bridge of Don Library",
-    "address": "ScotscityName Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"bridge of don library",
+    address:"scotscityname road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Tillydrone Library& Learning Centre",
-    "address": "Pennan Road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"tillydrone library& learning centre",
+    address:"pennan road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Woodside Library",
-    "address": "356 Clifton road",
-    "cityName": "Aberdeen",
-    "email": "",
-    "phone": ""
+    libraryName:"woodside library",
+    address:"356 clifton road",
+    cityName:"aberdeen",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Aboyne Library",
-    "address": "Community Centre",
-    "cityName": "Aboyne",
-    "email": "",
-    "phone": ""
+    libraryName:"aboyne library",
+    address:"community centre",
+    cityName:"aboyne",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Balleter Library",
-    "address": "Station Square",
-    "cityName": "Ballater",
-    "email": "",
-    "phone": ""
+    libraryName:"balleter library",
+    address:"station square",
+    cityName:"ballater",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Balmedie Library",
-    "address": "Eigie Road",
-    "cityName": "Balmedie",
-    "email": "",
-    "phone": ""
+    libraryName:"balmedie library",
+    address:"eigie road",
+    cityName:"balmedie",
+    email:"",
+    phone:""
   },
   {
-    "libraryName": "Banchory Library",
-    "address": "Bridge Street",
-    "cityName": "Banchory",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Banff Library",
-    "address": "High Street",
-    "cityName": "Banff",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Whitehills Library",
-    "address": "Loch Street",
-    "cityName": "Banff",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Bracoden Library",
-    "address": "Bracoden School",
-    "cityName": "Banff",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Ellon Library",
-    "address": "Station Road",
-    "cityName": "Ellon",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Fettercairn Library",
-    "address": "Fettercairn School",
-    "cityName": "Fettercairn",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "New Pitsligo Library",
-    "address": "79 High Street",
-    "cityName": "Fraserburgh",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Strichen Library",
-    "address": "59a Water Street",
-    "cityName": "Fraserburgh",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Cairnbulg Library",
-    "address": "Station Road",
-    "cityName": "Fraserburgh",
-    "email": "",
-    "phone": ""
-  },
-  {
-    "libraryName": "Fraserburgh Library",
-    "address": "King Edward Street",
-    "cityName": "Fraserburgh",
-    "email": "",
-    "phone": ""
-  },
-  {
+    libraryName:"banchory library",
+    address:"bridge street",
+    cityName:"banchory",
+    email:"",
+    phone:""
+  }
 ];
 
 //======================================================================================================
