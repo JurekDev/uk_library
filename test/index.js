@@ -28208,7 +28208,7 @@ var data=[
       libraryName:"wrexham library",
       address:"rhosddu road",
       cityName:"wrexham",
-      email:"library@wrexham.gov.uk\\\\nreference.library@wrexham.gov.uk\\\\nlocal.studies@wrexham.gov.uk",
+      email:"library@wrexham.gov.uk",
       phone:"01978 292091"
     },
     {
