@@ -28300,10 +28300,10 @@ var skillName = "Alexa Team Lookup";
 //This is the welcome message for when a user starts the skill without a specific intent.
 // var WELCOME_MESSAGE = "Welcome to  " + skillName + "! I can help you find Alexa Evangelists and Solutions Architects. " + getGenericHelpMessage(data);
 
-var WELCOME_MESSAGE = "Learn about Alexa Evangelists. For example, " + getGenericHelpMessage(data)
+var WELCOME_MESSAGE = "Find libraries in the United Kingdom. For example, " + getGenericHelpMessage(data)
 
 //This is the message a user will hear when they ask Alexa for help in your skill.
-var HELP_MESSAGE = "I can help you find Alexa Evangelists and Solutions Architects. "
+var HELP_MESSAGE = "I can help you find libraries in the United Kingdom. "
 
 //This is the message a user will hear when they begin a new search
 var NEW_SEARCH_MESSAGE = getGenericHelpMessage(data);
@@ -28311,9 +28311,9 @@ var NEW_SEARCH_MESSAGE = getGenericHelpMessage(data);
 //This is the message a user will hear when they ask Alexa for help while in the SEARCH state
 var SEARCH_STATE_HELP_MESSAGE = getGenericHelpMessage(data);
 
-var DESCRIPTION_STATE_HELP_MESSAGE = "Here are some things you can say: Tell me more, or give me his or her contact info";
+var DESCRIPTION_STATE_HELP_MESSAGE = "Here are some things you can say: Tell me more, or give me contact info";
 
-var MULTIPLE_RESULTS_STATE_HELP_MESSAGE = "Sorry, please say the first and last name of the person you'd like to learn more about";
+var MULTIPLE_RESULTS_STATE_HELP_MESSAGE = "Sorry, please say the name of the library you'd like to learn more about";
 
 // This is the message use when the decides to end the search
 var SHUTDOWN_MESSAGE = "Ok.";
@@ -28453,7 +28453,7 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
         this.emit(":ask", output, output);
     },
     "AMAZON.YesIntent": function() {
-        var output = "Hmm. I think you said - yes, but can you please say the name of the person you'd like to learn more about?";
+        var output = "Hmm. I think you said - yes, but can you please say the name of the library you'd like to learn more about?";
         this.emit(":ask", output, output);
     },
     "AMAZON.NoIntent": function() {
@@ -28536,7 +28536,7 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
         person = this.attributes.lastSearch.results[0];
         cardContent = generateCard(person); //calling the helper function to generate the card content that will be sent to the Alexa app.
         speechOutput = generateTellMeMoreMessage(person);
-        repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+        repromptSpeech = "Would you like to find another library? Say yes or no";
 
         console.log("the contact you're trying to find more info about is " + person.libraryName);
         this.handler.state = states.SEARCHMODE;
@@ -28564,14 +28564,14 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
               person =  this.attributes.lastSearch.results[0];
               cardContent = generateCard(person);
               speechOutput = generateSpecificInfoMessage(slots,person);
-              repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+              repromptSpeech = "Would you like to find another library? Say yes or no";
               this.handler.state = states.SEARCHMODE;
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
             } else {
               //not a valid slot. no card needs to be set up. respond with simply a voice response.
               speechOutput = generateSearchHelpMessage();
-              repromptSpeech = "You can ask me - what's his phone, or give me his address";
+              repromptSpeech = "You can ask me - what's the phone number, or give me the address";
               this.attributes.lastSearch.lastSpeech = speechOutput;
               this.handler.state = states.SEARCHMODE;
               this.emit(":ask", speechOutput, repromptSpeech);
@@ -28684,7 +28684,7 @@ function searchByNameIntentHandler(){
         if (searchResults.count > 1) { //multiple results found
             console.log("Search complete. Multiple results were found");
             var listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
-            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
+            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Which library would you like to learn more about?";
             this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
             this.attributes.lastSearch.lastSpeech = output;
             this.emit(":ask", output);
@@ -28741,7 +28741,7 @@ function searchByCityIntentHandler(){
         if (searchResults.count > 1) { //multiple results found
             console.log("Search completed by city. Multiple results were found");
             var listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
-            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
+            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Which library would you like to learn more about?";
             this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
             this.attributes.lastSearch.lastSpeech = output;
             this.emit(":ask", output);
@@ -28797,7 +28797,7 @@ function searchByInfoTypeIntentHandler(){
         if (searchResults.count > 1) { //multiple results found
             console.log("multiple results were found");
             var listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
-            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
+            output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Which library would you like to learn more about?";
             this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
             this.attributes.lastSearch.lastSpeech = output;
             this.emit(":ask", output);
@@ -28810,7 +28810,7 @@ function searchByInfoTypeIntentHandler(){
                 var person = this.attributes.lastSearch.results[0];
                 var cardContent = generateCard(person);
                 var speechOutput = generateSpecificInfoMessage(slots,person);
-                var repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+                var repromptSpeech = "Would you like to find another library? Say yes or no";
                 this.attributes.lastSearch.lastSpeech = speechOutput;
                 this.handler.state = states.SEARCHMODE;
                 this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body);
@@ -28852,7 +28852,7 @@ function generateNextPromptMessage(person,mode){
 
   if (mode == "current"){
     // if the mode is current, we should give more informaiton about the current contact
-    prompt = ". You can say - tell me more, or  tell me his" +  " " + infoTypes[getRandom(0,infoTypes.length-1)];
+    prompt = ". You can say - tell me more, or  tell me the" +  " " + infoTypes[getRandom(0,infoTypes.length-1)];
   }
   //if the mode is general, we should provide general help information
   else if (mode == "general"){
@@ -28911,7 +28911,7 @@ function generateTellMeMoreMessage(person){
 function generateSpecificInfoMessage(slots,person){
     var infoTypeValue;
     var sentence;
-
+//TODO delete github stuff
     if (slots.infoType.value == "git hub"){
       infoTypeValue = "address";
       console.log("resetting gith hub to address");
