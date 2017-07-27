@@ -30,13 +30,6 @@ var data=[
       phone:"01224 652500"
     },
     {
-      libraryName:"aberdeen central library, local studies department",
-      address:"rosemount viaduct",
-      cityName:"aberdeen",
-      email:"localstudieslibrary@aberdeencity.gov.uk",
-      phone:"01224 652512"
-    },
-    {
       libraryName:"ferryhill library",
       address:"fonthill road",
       cityName:"aberdeen",
@@ -79,7 +72,7 @@ var data=[
       phone:""
     },
     {
-      libraryName:"cults library & learning centre",
+      libraryName:"cults library",
       address:"429 north deeside road",
       cityName:"aberdeen",
       email:"",
@@ -121,7 +114,7 @@ var data=[
       phone:""
     },
     {
-      libraryName:"tillydrone library& learning centre",
+      libraryName:"tillydrone library",
       address:"pennan road",
       cityName:"aberdeen",
       email:"",
