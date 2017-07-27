@@ -28905,13 +28905,13 @@ function generateSearchHelpMessage(){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " phone number is " + person.phone + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " phone number is: " + person.phone + " , the email address is: " + person.email + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
     var infoTypeValue;
     var sentence;
-    
+
 //TODO delete github stuff
     if (slots.infoType.value == "git hub"){
       infoTypeValue = "address";
