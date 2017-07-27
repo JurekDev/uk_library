@@ -28911,6 +28911,7 @@ function generateTellMeMoreMessage(person){
 function generateSpecificInfoMessage(slots,person){
     var infoTypeValue;
     var sentence;
+    
 //TODO delete github stuff
     if (slots.infoType.value == "git hub"){
       infoTypeValue = "address";
@@ -28921,7 +28922,7 @@ function generateSpecificInfoMessage(slots,person){
       infoTypeValue = slots.infoType.value;
     }
 
-    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is - " + person[infoTypeValue.toLowerCase()] + " . Would you like to find another library? " + getGenericHelpMessage(data);
+    sentence = person.libraryName + "'s " + infoTypeValue.toLowerCase() + " is : " + person[infoTypeValue.toLowerCase()] + " . Would you like to find another library? " + getGenericHelpMessage(data);
     return optimizeForSpeech(sentence);
 }
 
