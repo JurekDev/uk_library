@@ -850,10 +850,10 @@ var data=[
     },
     {
       libraryName:"aviemore library",
-      address:"units 1& 2",
+      address:"muirton",
       cityName:"aviemore",
-      email:"",
-      phone:""
+      email:"aviemore.library@highlifehighland.com",
+      phone:"01479 813141"
     },
     {
       libraryName:"grancityname library",
@@ -863,7 +863,7 @@ var data=[
       phone:""
     },
     {
-      libraryName:"badenoch library & learning centre",
+      libraryName:"badenoch library",
       address:"spey street",
       cityName:"kingussie",
       email:"",
@@ -1991,7 +1991,7 @@ var data=[
     },
     {
       libraryName:"machen library",
-      address:"village hall & social centre",
+      address:"village hall and social centre",
       cityName:"machen",
       email:"",
       phone:""
@@ -2096,7 +2096,7 @@ var data=[
     },
     {
       libraryName:"buckden library",
-      address:"millennium community hall & sports centre",
+      address:"millennium community hall and sports centre",
       cityName:"buckden",
       email:"",
       phone:"0345 045 5225"
@@ -2579,10 +2579,10 @@ var data=[
     },
     {
       libraryName:"pontyberem library",
-      address:"memorial hall & institute",
+      address:"memorial hall and institute",
       cityName:"llanelli",
-      email:"",
-      phone:""
+      email:"libraries@carmarthenshire.gov.uk",
+      phone:"01269 870891"
     },
     {
       libraryName:"pontyates library",
@@ -3621,13 +3621,6 @@ var data=[
       phone:""
     },
     {
-      libraryName:"southern education & library board",
-      address:"1 markethill road",
-      cityName:"armagh",
-      email:"",
-      phone:""
-    },
-    {
       libraryName:"armagh library",
       address:"market square",
       cityName:"armagh",
@@ -3845,9 +3838,9 @@ var data=[
       phone:""
     },
     {
-      libraryName:"dublin city library & archives",
+      libraryName:"dublin city library",
       address:"administrative headquarters",
-      cityName:"dublin 2",
+      cityName:"dublin",
       email:"dublinpubliclibraries@dublincity.ie",
       phone:"0353 01 674 4800"
     },
@@ -4335,7 +4328,7 @@ var data=[
       phone:"0353 094 9047573"
     },
     {
-      libraryName:"kells & connor library",
+      libraryName:"kells and connor library",
       address:"5 main street",
       cityName:"kells",
       email:"",
@@ -7506,7 +7499,7 @@ var data=[
       phone:"01273 296914"
     },
     {
-      libraryName:"brighton museum & art gallery, brighton history centre library",
+      libraryName:"brighton history centre library",
       address:"pavilion gardens",
       cityName:"brighton",
       email:"localhistory@brighton-hove.gov.uk",
@@ -8158,7 +8151,7 @@ var data=[
     },
     {
       libraryName:"earls colne library",
-      address:"william hunt reading room & library",
+      address:"william hunt reading room and library",
       cityName:"earls colne",
       email:"earlscolne.library@essexcc.gov.uk",
       phone:"01787 223565"
@@ -8851,7 +8844,7 @@ var data=[
     },
     {
       libraryName:"kirkcaldy central library",
-      address:"museum & art gallery",
+      address:"museum and art gallery",
       cityName:"kirkcaldy",
       email:"",
       phone:"01592 583206"
@@ -10061,7 +10054,7 @@ var data=[
       phone:"0208977 1559"
     },
     {
-      libraryName:"hanworth air park leisure centre & library",
+      libraryName:"hanworth air park leisure centre and library",
       address:"uxbridge road",
       cityName:"hanworth",
       email:"hounslowlibraries@cip.org.uk",
@@ -10811,7 +10804,7 @@ var data=[
     },
     {
       libraryName:"hackney central library",
-      address:"technology & learning centre",
+      address:"technology and learning centre",
       cityName:"london",
       email:"info@hackney.gov.uk",
       phone:"0208356 2542"
@@ -11784,7 +11777,7 @@ var data=[
     },
     {
       libraryName:"brandlesholme library",
-      address:"brandlesholme community centre & library",
+      address:"brandlesholme community centre and library",
       cityName:"bury",
       email:"brandlesholme.lib@bury.gov.uk",
       phone:""
@@ -14493,7 +14486,7 @@ var data=[
     },
     {
       libraryName:"county central library",
-      address:"arts & libraries hq",
+      address:"arts and libraries hq",
       cityName:"maidstone",
       email:"countycentrallibrary@kent.gov.uk",
       phone:"01622 696511"
@@ -15430,7 +15423,7 @@ var data=[
       phone:"0161 253 5886"
     },
     {
-      libraryName:"moorside community centre & library",
+      libraryName:"moorside community centre and library",
       address:"parkinson street",
       cityName:"bury",
       email:"",
@@ -17824,7 +17817,7 @@ var data=[
       phone:""
     },
     {
-      libraryName:"st julians community learning & library centre",
+      libraryName:"st julians community learning and library centre",
       address:"beaufort road",
       cityName:"newport",
       email:"",
@@ -18322,7 +18315,7 @@ var data=[
     },
     {
       libraryName:"west earlham library",
-      address:"17 & 18 earlham west centre",
+      address:"17 and 18 earlham west centre",
       cityName:"norwich",
       email:"west.earlham.lib@norfolk.gov.uk",
       phone:"01603 451 881"
@@ -18342,7 +18335,7 @@ var data=[
       phone:"01603 454 338"
     },
     {
-      libraryName:"norfolk & norwich millennium library",
+      libraryName:"norfolk and norwich millennium library",
       address:"the forum",
       cityName:"norwich",
       email:"millennium.lib@norfolk.gov.uk",
@@ -20008,7 +20001,7 @@ var data=[
       phone:"01495 223545"
     },
     {
-      libraryName:"orkney library & archive",
+      libraryName:"orkney library",
       address:"44 junction road",
       cityName:"kirkwall",
       email:"",
@@ -22186,7 +22179,7 @@ var data=[
     },
     {
       libraryName:"mapplewell and staincross library",
-      address:"mapplewell & staincross village hall, darton lane",
+      address:"mapplewell and staincross village hall, darton lane",
       cityName:"barnsley",
       email:"",
       phone:"01226 382309"
@@ -22227,7 +22220,7 @@ var data=[
       phone:"01226 753846"
     },
     {
-      libraryName:"priory information & resource centre library",
+      libraryName:"priory information and resource centre library",
       address:"priory campus",
       cityName:"barnsley",
       email:"",
@@ -22241,7 +22234,7 @@ var data=[
       phone:"01226 773930"
     },
     {
-      libraryName:"royston library & lifelong learning centre",
+      libraryName:"royston library and lifelong learning centre",
       address:"station road",
       cityName:"barnsley",
       email:"",
@@ -24223,7 +24216,7 @@ var data=[
     },
     {
       libraryName:"teesside university library",
-      address:"teesside university, library & information services, southfield road",
+      address:"teesside university, library and information services, southfield road",
       cityName:"middlesbrough",
       email:"libraryhelp@tees.ac.uk.",
       phone:"01642 342100"
@@ -24705,7 +24698,7 @@ var data=[
       phone:"0191 456 2852"
     },
     {
-      libraryName:"doxford park library & customer service centre",
+      libraryName:"doxford park library",
       address:"mill hill road",
       cityName:"sunderland",
       email:"doxfordpark.library@sunderland.gov.uk",
@@ -24719,14 +24712,14 @@ var data=[
       phone:"0191 553 6695"
     },
     {
-      libraryName:"city library & arts centre",
+      libraryName:"city library and arts centre",
       address:"fawcett street",
       cityName:"sunderland",
       email:"enquiry.desk@sunderland.gov.uk",
       phone:"0191 561 1235"
     },
     {
-      libraryName:"hendon library & customer service centre",
+      libraryName:"hendon library",
       address:"toward road",
       cityName:"sunderland",
       email:"hendon.library@sunderland.gov.uk",
@@ -24789,14 +24782,14 @@ var data=[
       phone:"0191 561 5885"
     },
     {
-      libraryName:"houghton library & customer service centre",
+      libraryName:"houghton library",
       address:"74 newbottle street",
       cityName:"sunderland",
       email:"houghton.library@sunderland.gov.uk",
       phone:"0191 561 6383"
     },
     {
-      libraryName:"bunny hill library & customer service centre",
+      libraryName:"bunny hill library",
       address:"hylton lane",
       cityName:"sunderland",
       email:"bunnyhill.library@sunderland.gov.uk",
@@ -24838,7 +24831,7 @@ var data=[
       phone:"0191 561 3435"
     },
     {
-      libraryName:"washington library & customer service centre",
+      libraryName:"washington library",
       address:"independence square",
       cityName:"washington",
       email:"washcityname.library@sunderland.gov.uk",
@@ -24916,7 +24909,7 @@ var data=[
     },
     {
       libraryName:"sully library",
-      address:"bp sports & social club",
+      address:"bp sports and social club",
       cityName:"penarth",
       email:"",
       phone:""
@@ -24964,7 +24957,7 @@ var data=[
       phone:"02476 362512"
     },
     {
-      libraryName:"bidford library & information centre",
+      libraryName:"bidford library",
       address:"bramley way",
       cityName:"bidford on avon",
       email:"",
@@ -24985,7 +24978,7 @@ var data=[
       phone:"02476 542908"
     },
     {
-      libraryName:"keresley newland library & information centre",
+      libraryName:"keresley newland library",
       address:"bennetts road",
       cityName:"coventry",
       email:"",
@@ -25063,7 +25056,7 @@ var data=[
     },
     {
       libraryName:"camp hill library and information centre",
-      address:"camp hill education, sport & social (c.h.e.s.s.), cedar road",
+      address:"camp hill education, sport and social (c.h.e.s.s.), cedar road",
       cityName:"nuneaton",
       email:"",
       phone:"02476 757108"
@@ -25588,7 +25581,7 @@ var data=[
     },
     {
       libraryName:"ladywood library",
-      address:"community & health centre",
+      address:"community and health centre",
       cityName:"birmingham",
       email:"ladywood.library@birmingham.gov.uk",
       phone:"0121 464 8639"
@@ -25797,7 +25790,7 @@ var data=[
       phone:"02476 687 562"
     },
     {
-      libraryName:"caludon castle school & community library",
+      libraryName:"caludon castle school",
       address:"axholme road",
       cityName:"coventry",
       email:"caludon.library@coventry.gov.uk",
@@ -26357,7 +26350,7 @@ var data=[
       phone:"01902 552025"
     },
     {
-      libraryName:"scotlands & underhill library",
+      libraryName:"scotlands and underhill library",
       address:"masefield road",
       cityName:"wolverhampton",
       email:"scotlands.library@dial.pipex.com",
@@ -28002,7 +27995,7 @@ var data=[
       phone:"01980 843460"
     },
     {
-      libraryName:"libraries & heritage headquarters",
+      libraryName:"libraries and heritage headquarters",
       address:"bythesea road",
       cityName:"trowbridge",
       email:"libraryenquiries@wiltshire.gov.uk",
