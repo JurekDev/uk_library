@@ -28905,7 +28905,7 @@ function generateSearchHelpMessage(){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " phone number is: " + person.phone + " , the email address is: " + person.email + ". " + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + "'s phone number is: " + person.phone + " , the email address is: " + person.email + ". " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
