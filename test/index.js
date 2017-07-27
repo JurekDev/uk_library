@@ -28862,7 +28862,7 @@ function generateNextPromptMessage(person,mode){
 }
 
 function generateSendingCardToAlexaAppMessage(person,mode){
-    var sentence = "I have sent " + person.libraryName + "'s contact card to your Alexa app" + generateNextPromptMessage(person,mode);
+    var sentence = "I have sent " + person.libraryName + "'s contact info to your Alexa app" + generateNextPromptMessage(person,mode);
     return sentence;
 }
 
@@ -28905,7 +28905,7 @@ function generateSearchHelpMessage(){
 }
 
 function generateTellMeMoreMessage(person){
-    var sentence = person.libraryName + " phone number is: " + person.phone + " , the email address is: " + person.email + generateSendingCardToAlexaAppMessage(person,"general");
+    var sentence = person.libraryName + " phone number is: " + person.phone + " , the email address is: " + person.email + ". " + generateSendingCardToAlexaAppMessage(person,"general");
     return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
